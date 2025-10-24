@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portofolio Syifa Maulida</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  />
+</head>
+<body>
+  <header>
+    <div class="profile-container">
+      <img
+        src="assets/profile.jpeg"
+        alt="Foto Profil Syifa Maulida"
+        class="profile-img"
+      />
+      <h1>Syifa Maulida</h1>
+      <p>Mahasiswi Informatika | Frontend Developer | UI/UX </p>
+    </div>
+
+    <nav>
+      <ul>
+        <li>
+          <a href="#" onclick="showSection('about', this)" class="active"
+            >Tentang Saya</a
+          >
+        </li>
+        <li>
+          <a href="#" onclick="showSection('experience', this)"
+            >Pengalaman</a
+          >
+        </li>
+        <li><a href="#" onclick="showSection('skills', this)">Keahlian</a></li>
+        <li><a href="#" onclick="showSection('contact', this)">Kontak</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="about" class="active">
+      <h2>Tentang Saya</h2>
+      <p class="about-bio">
+        Halo! Saya Syifa Maulida, seorang mahasiswi semester 7 dari program
+        studi <b>Informatika</b> di <b>Institut Teknologi Kalimantan</b>.
+        <br /><br />
+        Saya memiliki minat yang kuat dalam pengembangan web, khususnya di
+        bidang <b>Frontend Development</b> dan <b>UI/UX Design</b>. Saya
+        senang menerjemahkan ide dan desain menjadi antarmuka website yang
+        fungsional, bersih, dan menarik secara visual.
+      </p>
+      <div class="social-links">
+        <a
+          href="https://www.linkedin.com/in/syifa-maulida-18sip1818"
+          target="_blank"
+          title="LinkedIn"
+        >
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a
+          href="https://github.com/SyifaMaulida18"
+          target="_blank"
+          title="GitHub"
+        >
+          <i class="fab fa-github"></i>
+        </a>
+        <a
+          href="https://www.instagram.com/syifamaulida18?igsh=ZDQyaXl6d3NncGU4&utm_source=qr"
+          target="_blank"
+          title="Instagram"
+        >
+          <i class="fab fa-instagram"></i>
+        </a>
+      </div>
+    </section>
+
+    <section id="experience">
+      <h2>Pengalaman</h2>
+      <div class="experience-list">
+        <div class="experience-item">
+          <h3>UI/UX Designer Intern</h3>
+          <p class="experience-meta">
+            <span class="company">PT Kideco Jaya Agung</span> |
+            <span class="location">BPIT Department</span>
+          </p>
+          <p class="experience-date">20 Januari 2025 - 20 Februari 2025</p>
+          <ul>
+            <li>
+              Merancang alur pengguna (user flow), wireframe, dan prototype
+              high-fidelity untuk website manajemen aset IT perusahaan.
+            </li>
+          </ul>
+        </div>
+
+        <div class="experience-item">
+          <h3>Himpunan Mahasiswa Informatika (HMTI) ITK</h3>
+          <p class="experience-meta">
+            <span class="company"
+              >Departemen Sosial Masyarakat (SOMAS)</span
+            >
+          </p>
+          <ul>
+            <li><b>Sekretaris Departemen</b> (September 2024 - Agustus 2025)</li>
+            <li><b>Staff Departemen</b> (September 2023 - Agustus 2024)</li>
+          </ul>
+        </div>
+
+        <div class="experience-item">
+          <h3>UKM Pramuka ITK</h3>
+          <p class="experience-meta">
+            <span class="company">Kepengurusan Aktif</span>
+          </p>
+          <ul>
+            <li><b>Ketua Putri</b> (September 2024 - Agustus 2025)</li>
+            <li>
+              <b>Staff Departemen Kewirausahaan</b> (September 2023 - Agustus
+              2024)
+            </li>
+            <li><b>Anggota Aktif</b> (2022 - Sekarang)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <h2>Keahlian</h2>
+      <div class="skills-container">
+        <div class="skill-category">
+          <h3>Frontend Development</h3>
+          <div class="skill-list">
+            <span><i class="fab fa-html5"></i> HTML5</span>
+            <span><i class="fab fa-css3-alt"></i> CSS3</span>
+            <span><i class="fab fa-react"></i> React</span>
+            <span><i class="fab fa-react"></i> Next.js</span>
+            <span><i class="fa-solid fa-wind"></i> Tailwind CSS</span>
+            </div>
+        </div>
+
+        <div class="skill-category">
+          <h3>UI/UX Design</h3>
+          <div class="skill-list">
+            <span><i class="fab fa-figma"></i> Figma</span>
+            <span><i class="fa-solid fa-mobile-screen"></i> Prototyping</span>
+          </div>
+        </div>
+
+        <div class="skill-category">
+          <h3>Implementasi Keahlian (Project)</h3>
+          <p style="margin-bottom: 1rem; text-align: center;">
+            Keahlian di atas telah saya terapkan dalam berbagai proyek tugas
+            besar mata kuliah, seperti:
+          </p>
+          <div class="skill-list" style="justify-content: center;">
+            <span style="background-color: #fce4ec">IPPL - Aplikasi Tes Online (Frontend)</span>
+            <span style="background-color: #fce4ec">PAPB - Aplikasi Mobile GrowStrawberry</span>
+            <span style="background-color: #fce4ec">Capstone - Aplikasi Reservasi Online (Frontend)</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Hubungi Saya</h2>
+      <p style="text-align: center; margin-bottom: 1.5rem;">
+        Tertarik bekerja sama atau ingin bertanya? Silakan isi form di bawah ini.
+      </p>
+      <form id="contact-form">
+        <label for="name">Nama</label>
+        <input type="text" id="name" placeholder="Masukkan nama Anda" required />
+
+        <label for="email">Email</label>
+        <input
+          type="email"
+          id="email"
+          placeholder="Masukkan email Anda"
+          required
+        />
+
+        <label for="phone">Nomor Telepon</label>
+        <input
+          type="tel"
+          id="phone"
+          placeholder="Masukkan nomor telepon"
+          required
+        />
+
+        <label for="message">Pesan</label>
+        <textarea
+          id="message"
+          placeholder="Tulis pesan Anda"
+          rows="5"
+          required
+        ></textarea>
+
+        <button type="submit">Kirim Pesan</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-socials">
+      <a
+        href="https://www.linkedin.com/in/syifa-maulida-18sip1818"
+        target="_blank"
+        title="LinkedIn"
+      >
+        <i class="fab fa-linkedin"></i>
+      </a>
+      <a
+        href="https://github.com/SyifaMaulida18"
+        target="_blank"
+        title="GitHub"
+      >
+        <i class="fab fa-github"></i>
+      </a>
+      <a
+        href="https://www.instagram.com/syifamaulida18?igsh=ZDQyaXl6d3NncGU4&utm_source=qr"
+        target="_blank"
+        title="Instagram"
+      >
+        <i class="fab fa-instagram"></i>
+      </a>
+    </div>
+    <p>&copy; 2025 Dibuat dengan ♡ oleh Syifa Maulida.</p>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
