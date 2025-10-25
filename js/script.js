@@ -112,10 +112,28 @@ document.addEventListener("DOMContentLoaded", function () {
       }
 
       // Jika semua validasi lolos
-      alert(`Terima kasih, ${name}! Pesan kamu telah terkirim 💌`);
+      
+      // 1. Ambil container untuk output
+      const submissionContainer = document.getElementById("form-submission");
+
+      // 2. Buat HTML untuk ditampilkan (menampilkan nilai form)
+      const outputHTML = `
+        <div class="submission-data">
+          <h3>Terima Kasih, ${name}! 💌</h3>
+          <p>Pesan Anda telah kami terima. Berikut adalah detail yang Anda kirimkan:</p>
+          <ul>
+            <li><strong>Email:</strong> ${email}</li>
+            <li><strong>Nomor Telepon:</strong> ${phone}</li>
+            <li><strong>Pesan:</strong> ${message}</li>
+          </ul>
+        </div>
+      `;
       
-      // Kosongkan form setelah berhasil
-      contactForm.reset();
+      // 3. Tampilkan HTML di halaman
+      submissionContainer.innerHTML = outputHTML;
+      
+      // 4. Kosongkan form setelah berhasil
+      contactForm.reset();
     });
   }
 });
