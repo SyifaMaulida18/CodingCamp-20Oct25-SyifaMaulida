@@ -1,35 +1,83 @@
-/* Fungsi ini dipanggil oleh 'onclick' di HTML 
-  untuk mengatur section mana yang tampil.
-*/
-function showSection(id, clickedLink) {
-  // 1. Sembunyikan semua section
-  const sections = document.querySelectorAll("main section");
-  sections.forEach((section) => {
-    section.classList.remove("active");
-  });
-
-  // 2. Tampilkan section yang ID-nya sesuai
-  const activeSection = document.getElementById(id);
-  if (activeSection) {
-    activeSection.classList.add("active");
-  }
-
-  // 3. Hapus class 'active' dari semua link navigasi
-  const navLinks = document.querySelectorAll("nav a");
-  navLinks.forEach((link) => {
-    link.classList.remove("active");
-  });
-
-  // 4. Tambahkan class 'active' ke link yang baru saja diklik
-  if (clickedLink) {
-    clickedLink.classList.add("active");
-  }
-}
-
 // Menjalankan kode setelah semua HTML dimuat
 document.addEventListener("DOMContentLoaded", function () {
   
+  // --- FITUR BARU: POIN 4 (Welcome Speech) ---
+  function showWelcomeMessage() {
+    // 1. Tampilkan box untuk menanyakan nama
+    const userName = prompt("Halo! Siapa nama Anda?");
+    
+    // 2. Cari elemen <h2> yang kita buat di HTML
+    const welcomeElement = document.getElementById("welcome-message");
+
+    // 3. Cek apakah pengguna mengisi nama
+    if (userName) {
+      // Jika diisi, tampilkan sapaan
+      welcomeElement.textContent = `Hi, ${userName}! Welcome to TechSolution ID.`;
+    } else {
+      // Jika tidak diisi (klik cancel atau OK tapi kosong), tampilkan sapaan default
+      welcomeElement.textContent = `Welcome to TechSolution ID!`;
+    }
+  }
+
+  // Panggil fungsinya saat halaman dimuat
+  showWelcomeMessage(); 
+  // --- FITUR 1: Smooth Scroll saat Navigasi di-klik ---
+  const navLinks = document.querySelectorAll("nav a");
+
+  navLinks.forEach((link) => {
+    link.addEventListener("click", function (e) {
+      // 1. Mencegah link anchor melompat
+      e.preventDefault();
+
+      // 2. Ambil ID dari href (misal: "#about")
+      const targetId = this.getAttribute("href");
+      const targetSection = document.querySelector(targetId);
+
+      // 3. Scroll ke section tersebut
+      if (targetSection) {
+        targetSection.scrollIntoView({
+          behavior: "smooth",
+        });
+      }
+    });
+  });
+
+  // --- FITUR 2: Update Link Navigasi 'active' saat di-scroll ---
+  const sections = document.querySelectorAll("main section");
+  
+  // Opsi: 40% bagian section harus terlihat untuk dianggap 'active'
+  const options = {
+    threshold: 0.4 
+  };
+
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        // 1. Ambil ID section yang sedang terlihat
+        const id = entry.target.getAttribute("id");
+        
+        // 2. Hapus 'active' dari SEMUA link
+        navLinks.forEach(link => {
+          link.classList.remove("active");
+        });
+
+        // 3. Tambahkan 'active' ke link yang sesuai
+        const activeLink = document.querySelector(`nav a[href="#${id}"]`);
+        if (activeLink) {
+          activeLink.classList.add("active");
+        }
+      }
+    });
+  }, options);
+
+  // 4. Amati semua section
+  sections.forEach(section => {
+    observer.observe(section);
+  });
+
+  
   // --- Validasi Form Kontak ---
+  // (Kode validasi form kamu di sini TIDAK BERUBAH)
   
   const contactForm = document.getElementById("contact-form");
 
@@ -42,7 +90,7 @@ document.addEventListener("DOMContentLoaded", function () {
       // Ambil nilai dari setiap input
       const name = document.getElementById("name").value.trim();
       const email = document.getElementById("email").value.trim();
-      const phone = document.getElementById("phone").value.trim(); 
+      const phone = document.getElementById("phone").value.trim();
       const message = document.getElementById("message").value.trim();
 
       // Validasi 1: Cek apakah ada yang kosong
