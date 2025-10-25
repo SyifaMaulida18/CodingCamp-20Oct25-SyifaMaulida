@@ -6,6 +6,10 @@
   font-family: "Poppins", sans-serif;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background: #fffafa; /* Pink SANGAT pucat, hampir putih */
   color: #4a4a4a; /* Abu-abu tua, bukan hitam pekat */
@@ -18,7 +22,7 @@ header {
   /* GRADIENT BARU: Jauh lebih lembut */
   background: linear-gradient(135deg, #fddde6, #f8c3d4);
   /* TEKS BARU: Abu-abu tua, bukan putih */
-  color: #5E4D55; /* Abu-abu keunguan/pink tua */
+  color: #5e4d55; /* Abu-abu keunguan/pink tua */
   padding: 2.5rem 1rem;
   box-shadow: 0 4px 10px rgba(249, 142, 180, 0.15);
   border-bottom-left-radius: 30px;
@@ -45,9 +49,18 @@ header h1 {
   font-weight: 700;
   margin-top: 0.5rem;
 }
+
 header p {
   font-weight: 400;
   opacity: 1; /* Tidak perlu transparan lagi */
+}
+
+#welcome-message {
+  font-size: 1.25rem; /* Sedikit lebih kecil dari H1 */
+  font-weight: 600;
+  margin-top: 1.5rem; /* Beri jarak dari tagline */
+  color: #d63384; /* Gunakan warna pink tua agar menonjol */
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
 }
 
 /* === NAVIGASI (WARNA BARU) === */
@@ -61,7 +74,7 @@ nav ul {
 }
 nav a {
   /* TEKS BARU: Abu-abu tua (sama seperti header) */
-  color: #5E4D55;
+  color: #5e4d55;
   text-decoration: none;
   font-weight: 600;
   /* BACKGROUND BARU: Putih transparan yang lebih lembut */
@@ -83,34 +96,28 @@ nav a.active {
 
 /* === KONTEN UTAMA (SECTION) === */
 main {
-  padding-bottom: 3rem;
+  /* Tidak perlu padding-bottom lagi */
 }
 
 section {
-  display: none;
-  padding: 3rem 1.5rem;
-  max-width: 900px;
-  margin: auto;
-  background: #fff;
-  border-radius: 15px;
-  /* Shadow lebih lembut */
-  box-shadow: 0 5px 15px rgba(214, 51, 132, 0.08);
-  margin-top: 2rem;
-}
-section.active {
-  display: block;
-  animation: fadeIn 0.5s ease-in-out;
+  padding: 3rem 0; /* Padding atas/bawah, 0 untuk kiri/kanan */
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* Background selang-seling */
+main section:nth-of-type(odd) {
+  /* Section ganjil (About, Skills) */
+  background: #fff;
+}
+main section:nth-of-type(even) {
+  /* Section genap (Experience, Contact) */
+  background: #fffafa; /* Sama seperti warna body */
+}
+
+/* Class pembungkus konten di dalam section */
+.container {
+  max-width: 900px;
+  margin: 0 auto; /* Tengah */
+  padding: 0 1.5rem; /* Padding kiri/kanan agar tidak menempel di tepi */
 }
 
 h2 {
@@ -178,13 +185,14 @@ h2 {
 }
 
 /* === BAGIAN: PROYEK === */
+/* ... (Style proyek tetap sama) ... */
 .project-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 1.5rem;
 }
 .project-card {
-  background: #fffafa; /* Latar kartu lebih pucat */
+  background: #fffafa;
   border-radius: 12px;
   text-align: left;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -202,7 +210,7 @@ h2 {
   object-fit: cover;
   border-top-left-radius: 12px;
   border-top-right-radius: 12px;
-  border-bottom: 3px solid #fddde6; /* Border pink pucat */
+  border-bottom: 3px solid #fddde6;
 }
 .project-card h3 {
   color: #d63384;
@@ -211,7 +219,7 @@ h2 {
 .project-tech {
   font-size: 0.85rem;
   font-style: italic;
-  color: #e78fb3; /* Pink lembut */
+  color: #e78fb3;
   margin: 0 1.5rem 0.5rem 1.5rem;
 }
 .project-card p {
@@ -219,7 +227,7 @@ h2 {
   flex-grow: 1;
 }
 .project-links {
-  border-top: 1px solid #fef0f5; /* Border sangat tipis */
+  border-top: 1px solid #fef0f5;
   padding: 1rem 1.5rem;
   display: flex;
   gap: 1rem;
@@ -318,7 +326,7 @@ button:hover {
 footer {
   text-align: center;
   background: #f8c3d4; /* Pink lembut (sama seperti header) */
-  color: #5E4D55; /* Teks abu-abu tua */
+  color: #5e4d55; /* Teks abu-abu tua */
   padding: 2rem 1rem;
   margin-top: 3rem;
   border-top-left-radius: 20px;
@@ -331,13 +339,63 @@ footer {
   margin-bottom: 1rem;
 }
 .footer-socials a {
-  color: #5E4D55; /* Ikon abu-abu tua */
+  color: #5e4d55; /* Ikon abu-abu tua */
   font-size: 1.8rem;
   transition: all 0.3s ease;
 }
 .footer-socials a:hover {
   transform: scale(1.1);
   opacity: 0.7;
+}
+
+/* === BAGIAN: VISI MISI (di dalam #about) === */
+.vision-mission {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-top: 3rem;
+  text-align: left;
+}
+.vm-item {
+  flex: 1;
+  min-width: 280px; /* Agar rapi saat mengecil */
+  background: #fffafa;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border-bottom: 3px solid #f8c3d4;
+}
+.vm-item h3 {
+  color: #d63384;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+.vm-item ul {
+  padding-left: 1.5rem;
+  color: #555;
+}/* === BAGIAN: VISI MISI (di dalam #about) === */
+.vision-mission {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-top: 3rem;
+  text-align: left;
+}
+.vm-item {
+  flex: 1;
+  min-width: 280px; /* Agar rapi saat mengecil */
+  background: #fffafa;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border-bottom: 3px solid #f8c3d4;
+}
+.vm-item h3 {
+  color: #d63384;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+.vm-item ul {
+  padding-left: 1.5rem;
+  color: #555;
 }
 
 /* === RESPONSIVE (HP) === */
@@ -352,9 +410,11 @@ footer {
   h2 {
     font-size: 1.8rem;
   }
+  /*
   section {
     padding: 2rem 1rem;
   }
+  */
   .profile-img {
     width: 120px;
     height: 120px;
